@@ -24,9 +24,6 @@ jobs:
           - tasmota4M
           - tasmota-minimal
           - tasmota-display
-          - tasmota-ir
-          - tasmota-knx
-          - tasmota-lite
           - tasmota-sensors
           - tasmota-zbbridge
           - tasmota-zigbee
@@ -105,9 +102,6 @@ jobs:
         path: ./mv_firmware
     - name: Display structure of downloaded files
       run: ls -R ./mv_firmware/
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      #if: startsWith(github.ref, 'refs/tags/')
       with:
         tag_name: ${{ github.run_number }}
         files: ./mv_firmware/firmware/*
